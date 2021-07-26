@@ -17,7 +17,7 @@ def search():
     return "search" 
 
 @app.route("/requ")
-def request():
+def reqst():
     return render_template("request.html") 
 
 @app.route("/toplam", methods=["GET","POST"])
@@ -31,16 +31,16 @@ def toplam():
 
 
 @app.route("/redirect", methods = ["GET","POST"])
-def redirect():
+def redrect():
     if request.method == "POST":
         number1 = request.form.get("number1")
         number2 = request.form.get("number2")
         return render_template("num.html", total = int(number1) + int(number2)) 
     else:
-        return redirect(url_for("index.html")
-#@app.route("/delete/<string:id>")
-#def delet(id):
- #   return "Id: " + id
+        return redirect(url_for("index"))
+@app.route("/delete/<string:id>")
+def delet(id):
+    return "Id: " + id
 #if __name__ == "__main__":
   #  app.run(debug=True)
    # app.run(host='0.0.0.0', port=80)
